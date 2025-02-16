@@ -25,11 +25,13 @@ function handleCellClick(event) {
 
 function checkWinner() {
     let roundWon = false;
+    let winningCells = [];
 
     for (let condition of winConditions) {
         let [a, b, c] = condition.map(i => i - 1); // Adjust indexes to match array
         if (board[a] && board[a] === board[b] && board[a] === board[c]) {
             roundWon = true;
+            winningCells = [a, b, c];
             break;
         }
     }
@@ -37,6 +39,7 @@ function checkWinner() {
     if (roundWon) {
         statusText.textContent = `Player ${currentPlayer} Wins!`;
         gameActive = false;
+        highlightWinningCells(winningCells);
         return;
     }
 
@@ -48,6 +51,12 @@ function checkWinner() {
 
     currentPlayer = currentPlayer === "X" ? "O" : "X";
     statusText.textContent = `Player ${currentPlayer}'s Turn`;
+}
+
+function highlightWinningCells(cells) {
+    cells.forEach(index => {
+        document.querySelector(`.cell[data-index="${index + 1}"]`).classList.add("highlight");
+    });
 }
 
 function restartGame() {
