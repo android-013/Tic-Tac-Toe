@@ -13,7 +13,6 @@ h1 {
     display: grid;
     grid-template-columns: repeat(3, 100px);
     grid-template-rows: repeat(3, 100px);
-    gap: 5px;
     justify-content: center;
     margin: 20px auto;
 }
@@ -31,7 +30,60 @@ h1 {
 }
 
 .cell:hover {
-    background: rgba(127, 127, 127, 0.001);
+    transform: scale(.95);
+    transition: transform 0.1s ease-in;
+}
+
+/* Add borders to individual cells */
+.cell:nth-child(1) {
+    border-bottom: 2px solid white;
+    border-right: 2px solid white;
+}
+
+.cell:nth-child(2) {
+    border-bottom: 2px solid white;
+    border-right: 2px solid white;
+    border-left: 2px solid white;
+}
+
+.cell:nth-child(3) {
+    border-bottom: 2px solid white;
+    border-left: 2px solid white;
+}
+
+.cell:nth-child(4) {
+    border-bottom: 2px solid white;
+    border-top: 2px solid white;
+    border-right: 2px solid white;
+}
+
+.cell:nth-child(5) {
+    border-bottom: 2px solid white;
+    border-top: 2px solid white;
+    border-right: 2px solid white;
+    border-left: 2px solid white;
+}
+
+.cell:nth-child(6) {
+    border-bottom: 2px solid white;
+    border-top: 2px solid white;
+    border-left: 2px solid white;
+}
+
+.cell:nth-child(7) {
+    border-top: 2px solid white;
+    border-right: 2px solid white;
+}
+
+.cell:nth-child(8) {
+    border-top: 2px solid white;
+    border-right: 2px solid white;
+    border-left: 2px solid white;
+}
+
+.cell:nth-child(9) {
+    border-top: 2px solid white;
+    border-left: 2px solid white;
 }
 
 .restart {
