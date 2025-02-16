@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tic Tac Toe - Home</title>
+    <link rel="stylesheet" href="i.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Welcome to Tic Tac Toe!</h1>
+        <p class="intro">A classic game of strategy and fun.</p>
+
+        <div class="rules">
+            <h2>Game Rules:</h2>
+            <ul>
+                <li>The game is played on a 3x3 grid.</li>
+                <li>Player X and Player O take turns.</li>
+                <li>The first player to get 3 marks in a row (horizontal, vertical, or diagonal) wins.</li>
+                <li>If all 9 cells are filled and no player has won, it's a draw.</li>
+            </ul>
+        </div>
+
+        <div class="buttons">
+            <button onclick="startGame('single')">Single Player</button>
+            <button onclick="startGame('two')">Two Player</button>
+        </div>
+    </div>
+
+    <script>
+        function startGame(mode) {
+            if (mode === 'single') {
+                window.location.href = "p1.html"; // Redirect to single-player mode
+            } else {
+                window.location.href = "p2.html"; // Redirect to two-player mode
+            }
+        }
+    </script>
+</body>
+</html>
