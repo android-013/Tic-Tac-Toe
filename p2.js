@@ -64,7 +64,10 @@ function restartGame() {
     gameActive = true;
     currentPlayer = "X";
     statusText.textContent = "Player X's Turn";
-    cells.forEach(cell => (cell.textContent = ""));
+    cells.forEach(cell => {
+        cell.textContent = "";
+        cell.classList.remove("highlight");
+    });
 }
 
 cells.forEach(cell => cell.addEventListener("click", handleCellClick));
