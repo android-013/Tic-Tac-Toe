@@ -6,6 +6,7 @@ let board = ["", "", "", "", "", "", "", "", ""];
 let gameActive = true;
 let humanPlayer = "X";
 let aiPlayer = "O";
+let firstMoveByHuman = true; // Track who starts
 
 const winConditions = [
     [1, 2, 3], [4, 5, 6], [7, 8, 9], // Rows
@@ -115,12 +116,19 @@ function minimax(newBoard, player) {
     return bestMove;
 }
 
-// Restart Game
+// Restart Game and Alternate First Move
 function restartGame() {
     board = ["", "", "", "", "", "", "", "", ""];
     gameActive = true;
-    statusText.textContent = "Player X's Turn";
+    
+    firstMoveByHuman = !firstMoveByHuman; // Alternate who starts
+    statusText.textContent = firstMoveByHuman ? "Player X's Turn" : "AI's Turn";
+    
     cells.forEach(cell => (cell.textContent = ""));
+    
+    if (!firstMoveByHuman) {
+        setTimeout(aiMove, 300); // AI moves first if it's AI's turn
+    }
 }
 
 // Event Listeners
